@@ -1,65 +1,172 @@
-import Image from "next/image";
+"use client"; // ← यह लाइन लिखना ज़रूरी है ताकि एरर ठीक हो जाए
 
-export default function Home() {
+import React from 'react';
+
+// public/logo.png को यहाँ सेट किया गया है
+const Logo = () => (
+  <div className="flex items-center gap-2">
+    <img 
+      src="/logo.png" 
+      alt="Labour Connector Logo" 
+      className="h-7 w-auto object-contain"
+      onError={(e) => {
+        // अगर logo.png न मिले तो यह इमेज को छुपा देगा
+        e.currentTarget.style.display = 'none';
+      }}
+    />
+    <span className="text-lg font-semibold tracking-tight text-slate-900">
+      लेबर कनेक्टर
+    </span>
+  </div>
+);
+
+export default function HomePage() {
+  // 📝 अपनी गूगल ड्राइव की लिंक यहाँ नीचे "YOUR_GOOGLE_DRIVE_LINK" की जगह पेस्ट कर दें
+  const downloadLink = "YOUR_GOOGLE_DRIVE_LINK_HERE";
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="bg-slate-50 text-slate-800 font-sans min-h-screen selection:bg-blue-100">
+      
+      {/* मुख्य नेविगेशन बार */}
+      <nav className="bg-white border-b border-slate-100 py-3 px-4 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <Logo />
+          <div className="text-xs flex items-center gap-1.5 text-slate-500 font-medium bg-slate-100 px-3 py-1.5 rounded-full">
+            <span>📧</span> contact@labourconnector.com
+          </div>
+        </div>
+      </nav>
+
+      {/* 1. मुख्य हेडर सेक्शन (Hero Banner) */}
+      <header className="bg-gradient-to-b from-blue-50 to-white py-12 px-4 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex-1 text-left">
+            <span className="bg-blue-100 text-blue-700 font-medium px-2.5 py-1 rounded text-xs mb-3 inline-block">
+              आसान और सुरक्षित माध्यम
+            </span>
+            <h1 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight text-slate-900">
+              शहर भर के भरोसेमंद कारीगर, अब सीधे आपके मोबाइल पर।
+            </h1>
+            <p className="text-sm mb-6 max-w-lg text-slate-600 leading-relaxed">
+              अपने आस-पास के वेरीफाइड प्लंबर, इलेक्ट्रीशियन, पेंटर और अन्य कुशल कामगारों को खोजें। बिना किसी परेशानी के, सीधे ऐप के ज़रिए।
+            </p>
+            <div className="flex flex-row gap-2.5">
+              <a 
+                href={downloadLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white font-medium px-5 py-2 rounded shadow hover:bg-blue-700 transition text-xs text-center"
+              >
+                📱 ऐप डाउनलोड करें (Google Drive)
+              </a>
+              <a 
+                href="#join" 
+                className="bg-white text-slate-700 font-medium px-5 py-2 rounded border border-slate-200 hover:bg-slate-50 transition text-xs text-center"
+              >
+                कारीगर पंजीकरण
+              </a>
+            </div>
+          </div>
+          
+          {/* लाइट मॉकअप बॉक्स */}
+<div className="w-full md:w-auto flex justify-center">
+  <img 
+    src="/app-screen.png" 
+    alt="Labour Connector App Screen" 
+    className="w-36 h-auto rounded-xl border-2 border-slate-200 shadow-md object-contain"
+    onError={(e) => {
+      // अगर इमेज लोड न हो तो बैकअप के लिए पुराना बॉक्स दिखेगा
+      e.currentTarget.style.display = 'none';
+    }}
+  />
+</div>
+        </div>
+      </header>
+
+      {/* 2. ग्राहकों के लिए जानकारी अनुभाग */}
+      <section className="py-12 px-4 max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-xl font-semibold text-slate-900 mb-1.5">यह कैसे काम करता है?</h2>
+          <p className="text-xs text-slate-500">ग्राहकों के लिए 3 आसान चरण</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <div className="w-7 h-7 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center text-sm font-semibold mb-3">
+              1
+            </div>
+            <h3 className="text-sm font-semibold mb-1 text-slate-900">कारीगर खोजें</h3>
+            <p className="text-xs text-slate-600">अपने शहर and इलाके के अनुसार आवश्यक हुनर (Skill) चुनें।</p>
+          </div>
+
+          <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <div className="w-7 h-7 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center text-sm font-semibold mb-3">
+              2
+            </div>
+            <h3 className="text-sm font-semibold mb-1 text-slate-900">नंबर अनलॉक करें (₹29)</h3>
+            <p className="text-xs text-slate-600">सुरक्षित भुगतान करके सीधे कामगार का असली फ़ोन नंबर देखें।</p>
+          </div>
+
+          <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <div className="w-7 h-7 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center text-sm font-semibold mb-3">
+              3
+            </div>
+            <h3 className="text-sm font-semibold mb-1 text-slate-900">सीधा संपर्क करें</h3>
+            <p className="text-xs text-slate-600">बिना किसी बिचौलिये के सीधे बात करें और अपना काम पूरा करवाएं।</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. कारीगरों के लिए जानकारी अनुभाग (लाइट ब्लू बॉक्स) */}
+      <section id="join" className="py-10 px-4 max-w-5xl mx-auto bg-sky-50/60 rounded-xl border border-sky-100 my-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-xl font-semibold text-slate-900 mb-2 text-center">👷 क्या आप एक हुनरमंद कारीगर हैं?</h2>
+          <p className="text-xs text-slate-600 mb-6 text-center">हमारे साथ जुड़कर रोज़ नए ग्राहकों से सीधे काम और पूरा पैसा पाएं।</p>
+          
+          <div className="bg-white p-5 rounded-lg border border-sky-100/80 shadow-sm">
+            <h4 className="font-semibold text-slate-900 mb-3 text-sm">पंजीकरण फॉर्म भरने की प्रक्रिया:</h4>
+            <ul className="space-y-2 text-xs text-slate-600">
+              <li className="flex items-center gap-2">
+                <span className="text-blue-500">✔</span> <span>नीचे दिए लिंक से हमारा <strong>लेबर कनेक्टर ऐप</strong> डाउनलोड करें।</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-500">✔</span> <span>अपने मोबाइल नंबर पर प्राप्त OTP से लॉगिन करें।</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-500">✔</span> <span><strong>'Join as Labour'</strong> फॉर्म में अपना नाम, कला, शहर और आधार कार्ड की फोटो अपलोड करें।</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-500">✔</span> <span>दस्तावेजों की जांच के बाद 24 घंटे में आपका प्रोफाइल लाइव हो जाएगा।</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. लाइट डाउनलोड सेक्शन */}
+      <section id="download" className="bg-white border-t border-b border-slate-200 py-12 px-4 text-center">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-xl font-semibold mb-2 text-slate-900">आधिकारिक ऐप अभी डाउनलोड करें</h2>
+          <p className="text-xs text-slate-500 mb-6">
+            यह वेबसाइट केवल सूचनात्मक पोस्टर के रूप में है। कारीगरों को खोजने या फॉर्म भरने के लिए कृपया ऐप का उपयोग करें।
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          <a 
+            href={downloadLink}
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs px-6 py-2.5 rounded shadow transition cursor-pointer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            🤖 Download Android APK (Google Drive)
           </a>
         </div>
-      </main>
+      </section>
+
+      {/* फुटर */}
+      <footer className="bg-slate-100 text-slate-500 py-6 text-center text-xs border-t border-slate-200">
+        <p className="mb-1 font-medium text-slate-600">contact@labourconnector.com</p>
+        <p>© 2026 Labour Connector. सर्वाधिकार सुरक्षित।</p>
+      </footer>
+
     </div>
   );
 }
