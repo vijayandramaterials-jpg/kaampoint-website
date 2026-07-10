@@ -161,10 +161,17 @@ export default function HomePage() {
       </section>
 
       {/* फुटर */}
-      <footer className="bg-slate-100 text-slate-500 py-8 text-center text-sm border-t border-slate-200">
-        <p className="mb-2 font-semibold text-slate-600">info@kaampoint.in</p>
-        <p>© 2026 Kaam Point. सर्वाधिकार सुरक्षित।</p>
-      </footer>
+<footer className="bg-slate-100 text-slate-500 py-8 text-center text-sm border-t border-slate-200">
+  <p className="mb-2 font-semibold text-slate-600">info@kaampoint.in</p>
+  
+  {/* 🔗 यहाँ प्राइवेसी और टर्म्स के लिंक्स जोड़े गए हैं */}
+  <div className="flex justify-center gap-6 mb-3 font-medium text-blue-600">
+    <a href="/privacy" className="hover:underline">Privacy Policy</a>
+    <a href="/terms" className="hover:underline">Terms & Conditions</a>
+  </div>
+  
+  <p>© 2026 Kaam Point. सर्वाधिकार सुरक्षित।</p>
+</footer>
 
     </div>
   );
