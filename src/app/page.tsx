@@ -9,13 +9,13 @@ const Logo = () => (
     <img
       src="/logo.png"
       alt="Kaam Point Logo"
-      className="h-9 w-auto object-contain"
+      className="h-12 md:h-14"
       onError={(e) => {
         // अगर logo.png न मिले तो यह इमेज को छुपा देगा
         e.currentTarget.style.display = "none";
       }}
     />
-    <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">
+    <span className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
       Kaam Point
     </span>
   </div>
@@ -23,7 +23,8 @@ const Logo = () => (
 
 export default function HomePage() {
   // 📝 अपनी गूगल ड्राइव की लिंक यहाँ नीचे "YOUR_GOOGLE_DRIVE_LINK" की जगह पेस्ट कर दें
-  const downloadLink = "YOUR_GOOGLE_DRIVE_LINK_HERE";
+  const downloadLink =
+    "https://drive.google.com/uc?export=download&id=19ZWzZHKkatcvCKMECgWwGYr6Da6MeRwR";
 
   return (
     <div className="bg-slate-50 text-slate-800 font-sans min-h-screen selection:bg-blue-100 text-base md:text-lg">
@@ -45,12 +46,16 @@ export default function HomePage() {
       {/* 1. मुख्य हेडर सेक्शन (Hero Banner) */}
       <header className="bg-gradient-to-br from-blue-50 via-white to-sky-50 py-28 px-6 border-b border-slate-100 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="flex-1 text-left">
+          <div className="flex-[1.2] text-left">
             <span className="bg-blue-100 text-blue-700 font-semibold px-3 py-1.5 rounded text-sm mb-4 inline-block">
               आसान और सुरक्षित माध्यम
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 tracking-tight text-slate-900 leading-tight">
-              शहर भर के भरोसेमंद कारीगर, अब सीधे आपके मोबाइल पर।
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900">
+              शहर भर के भरोसेमंद
+              <br />
+              कारीगर,
+              <br />
+              अब सीधे आपके मोबाइल पर।
             </h1>
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
@@ -88,7 +93,7 @@ export default function HomePage() {
           </div>
 
           {/* लाइट मॉकअप बॉक्स */}
-          <div className="relative w-full md:w-auto flex justify-center items-center">
+          <div className="relative flex-1 flex justify-center items-center mt-10 md:mt-0">
             <div className="absolute w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
 
             <img
