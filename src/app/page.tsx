@@ -254,23 +254,26 @@ export default function HomePage() {
       {/* फुटर */}
       <footer className="bg-slate-100 text-slate-500 py-8 text-center text-sm border-t border-slate-200">
         <p className="mb-2 font-semibold text-slate-600">info@kaampoint.in</p>
-        <div className="flex justify-center gap-8 mt-5">
+        <div className="flex justify-center gap-8 mt-5 mb-4">
           <a href="#">Facebook</a>
-
           <a href="#">Instagram</a>
-
           <a href="#">LinkedIn</a>
-
           <a href="#">YouTube</a>
         </div>
 
-        {/* 🔗 यहाँ प्राइवेसी और टर्म्स के लिंक्स जोड़े गए हैं */}
-        <div className="flex justify-center gap-6 mb-3 font-medium text-blue-600">
+        {/* 🔗 PhonePe के लिए सभी ज़रूरी लिंक्स यहाँ अपडेट कर दिए गए हैं */}
+        <div className="flex flex-wrap justify-center gap-6 mb-4 font-medium text-blue-600">
           <a href="/privacy" className="hover:underline">
             Privacy Policy
           </a>
           <a href="/terms" className="hover:underline">
             Terms & Conditions
+          </a>
+          <a href="/refund-policy" className="hover:underline">
+            Refund Policy
+          </a>
+          <a href="/contact" className="hover:underline">
+            Contact Us
           </a>
         </div>
 
