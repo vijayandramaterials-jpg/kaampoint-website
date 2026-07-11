@@ -19,7 +19,7 @@ export default function ContactUs() {
 
         <div>
           <strong className="block text-lg text-gray-700">Registered Office Address:</strong>
-          <p>Indore, Madhya Pradesh, India - [अपना पिनकोड डालें]</p>
+          <p>Indore, Madhya Pradesh, India - 453551</p>
         </div>
       </div>
     </div>
